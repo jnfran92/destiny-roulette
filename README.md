@@ -1,9 +1,9 @@
 # Destiny Roulette 
 
-<img src="https://media.giphy.com/media/ckEJ3tyoy39UFgpeGq/giphy.gif" alt="Roulette" title="Roulette">
+<img src="https://i.giphy.com/media/3o6MblM7XUeAghyjrG/source.gif" alt="Roulette">
 
 
 A simple roulette game :godmode: coded in javascript.
- [Play]([http://jnfran92.rocks/destiny-roulette/)
+<a href="http://jnfran92.rocks/destiny-roulette/">PlayNow</a>
 
 *Note:* It uses `Howler` to play sounds.
