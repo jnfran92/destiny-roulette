@@ -7,4 +7,4 @@ A simple roulette game :godmode: coded in javascript.
 <a href="http://jnfran92.rocks/destiny-roulette/">PlayNow</a>
 
 **Note:** It uses `Howler` to play sounds.
-:warning: It is too simple, I warning you!
+:warning: It is too simple, I warn you!
