@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Destiny Roulette</title>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!--        <link href="css/bootstrap-theme.min.css" rel="stylesheet">-->
+        <link href="css/mystyles.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/bootstrap-social.css" rel="stylesheet">
+    </head>
+    <body>
+
+        <nav class="navbar navbar-default navbar-fixed-top ">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"><span class="fa fa-book"></span>Destiny Js-Roulette</a>
+                </div>
+            </div>
+        </nav>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="padding:15px 20px;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 id="titulo_modal"><span class="fa fa-pencil"></span>Titulo</h4>
+                    </div>
+                    <div class="modal-body" style="padding:0px 0px;">
+
+                        <img class="img-responsive center-block" src="img/1.png" alt="pregunta" id="imagen_pregunta" style="max-width: 700px; max-height: 350px;">
+
+
+
+
+                        <div class="panel panel-success" >
+                            <div class="panel-heading text-center">¡Escoge las respuesta correcta!</div>
+                            <div class="panel-body">
+                                <form style="padding-left:25%;font-size: 20px;">
+                                    <label class="radio-inline" id="l1" ><input type="radio" id="r1" name="optradio">A</label>
+                                    <label class="radio-inline" id="l2"><input type="radio" id="r2" name="optradio">B</label>
+                                    <label class="radio-inline" id="l3"><input type="radio" id="r3" name="optradio">C</label>
+                                    <label class="radio-inline" id="l4"><input type="radio" id="r4" name="optradio">D</label>
+                                    <label class="radio-inline" id="l5"><input type="radio" id="r5" name="optradio">E</label>
+                                    <label class="radio-inline" id="l6"><input type="radio" id="r6" name="optradio">F</label>
+                                    <label class="radio-inline" id="l7"><input type="radio" id="r7" name="optradio">G</label>
+                                    <label class="radio-inline" id="l8"><input type="radio" id="r8" name="optradio">H</label>
+                                </form>
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <div class="modal-footer"> 
+                        <div class="row">
+                            <h3 id="timer_pregunta" class="pull-left">Tiempo restante:</h3>
+                        </div>
+
+                        <button type="submit" class="btn btn-success pull-left" onclick="comprobar();"><span class="fa fa-thumbs-up"></span> ¡He terminado! Comprobar respuesta.</button>
+                        <button type="submit" class="btn btn-danger pull-right" data-dismiss="modal" onclick="clearInterval(x);"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div> 
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal2" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title" id="modal2-titulo">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h3 id="modal2-contenido">Some text in the modal.</h3>
+                        <img class="img-responsive center-block" src="img/exito.png" alt="modal2-img" id="modal2-img" style="max-width: 700px; max-height: 350px;">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="container" style="margin-top: 1px;">
+            <div class="row">
+                <div class="col-xs-12 col-sm-5">
+
+                    <div class="col-xs-12 col-sm-12 ">
+                        <img alt="libro" src="img/inicio2.png" style="width: 90px;" class="img-responsive center-block">  
+                    </div>
+
+
+
+
+                    <div class="col-xs-12 col-sm-12 text-center">
+                        <h2>¡Pon a prueba tu conocimiento!</h2>
+                        <p>20 Preguntas presentadas de manera didactica y entretenida. <strong>¡Buena suerte!</strong></p>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 ">
+                        <h2>Instrucciones</h2>
+
+                        <div class="col-xs-12 col-sm-12">
+                            <h3><span class="fa fa-play-circle"></span>Inicia</h3>
+                            <p>Presiona el boton <strong>INICIAR</strong> para activar la ruleta.</p>
+                        </div>
+
+
+                        <div class="col-xs-12 col-sm-12">
+                            <h3><span class="fa fa-pencil"></span>Contesta</h3>
+                            <p>Lee detenidamente la pregunta y selecciona la respuesta correcta.</p>
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12">
+                            <h3><span class="fa fa-clock-o"></span>¡Tiempo!</h3>
+                            <p>Toma en cuenta el tiempo, tienes un <strong>tiempo límite</strong> para responder y obtener el resultado.</p>
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+                <div class="col-xs-12 col-sm-7">
+
+
+                    <div class="panel panel-primary panel-roulette">
+                        <div class="panel-heading text-center">RULETA</div>
+
+                        <div class="panel-body">
+
+
+
+                            <div class="row">
+
+                                <div class="col-xs-12">
+
+
+                                    <canvas class="canvas-roulette center-block" id="canvas" width="500" height="500" ></canvas>
+
+                                    <div class="col-xs-3"></div>
+                                    <div class="col-xs-6">
+                                        <input type="button" class="btn btn-danger btn-block" value="INICIAR" style="float:left;" id='spin' />
+
+                                    </div>
+                                    <div class="col-xs-3"></div>
+
+                                </div>
+
+
+
+
+
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.2/howler.js"></script>
+
+
+        <script src="configuraciones/configuracion_preguntas.js"></script>
+        <script>
+
+
+            $(document).ready(function () {
+                $("#myBtn").click(function () {
+                    $("#myModal").modal();
+                });
+            });
+
+
+            var cheer = new Howl({
+                src: ['./sounds/cheer2.wav']
+            });
+
+            var wrong = new Howl({
+                src: ['./sounds/mal.mp3']
+            });
+
+            var timealarm = new Howl({
+                src: ['./sounds/time.wav']
+            });
+
+            var win = new Howl({
+                src: ['./sounds/gamewin.wav']
+            });
+
+            var lose = new Howl({
+                src: ['./sounds/lose.wav']
+            });
+
+            var spinwheel = new Howl({
+                src: ['./sounds/tic.wav']
+            });
+
+
+            var pop = new Howl({
+                src: ['./sounds/pop.wav']
+            });
+
+
+
+
+
+            var sound = new Howl({
+                src: ['./sounds/sound.wav', './sounds/sound.mp3'],
+                autoplay: true,
+                loop: true,
+                volume: 0.7,
+                onend: function () {
+                    console.log('Finished!');
+                }
+            });
+
+            sound.play();
+
+
+
+
+
+            var tiempo_limite = 3;
+
+            var text_global;
+
+
+            var index2 = 0;
+
+            var x;
+
+            var startAngle = 0;
+            var arc = Math.PI / (options.length / 2);
+            var spinTimeout = null;
+
+            var spinArcStart = 10;
+            var spinTime = 0;
+            var spinTimeTotal = 0;
+
+            var ctx;
+
+            document.getElementById("spin").addEventListener("click", spin);
+
+            function byte2Hex(n) {
+                var nybHexString = "0123456789ABCDEF";
+                return String(nybHexString.substr((n >> 4) & 0x0F, 1)) + nybHexString.substr(n & 0x0F, 1);
+            }
+
+            function RGB2Color(r, g, b) {
+                return '#' + byte2Hex(r) + byte2Hex(g) + byte2Hex(b);
+            }
+
+            function getColor(item, maxitem) {
+                var phase = 0;
+                var center = 128;
+                var width = 127;
+                var frequency = Math.PI * 2 / maxitem;
+
+                red = Math.sin(frequency * item + 2 + phase) * width + center;
+                green = Math.sin(frequency * item + 0 + phase) * width + center;
+                blue = Math.sin(frequency * item + 4 + phase) * width + center;
+
+                return RGB2Color(red, green, blue);
+            }
+
+            function drawRouletteWheel() {
+                var canvas = document.getElementById("canvas");
+                if (canvas.getContext) {
+                    var outsideRadius = 220;
+                    var textRadius = 160;
+                    var insideRadius = 30;
+
+                    ctx = canvas.getContext("2d");
+                    ctx.clearRect(0, 0, 500, 500);
+
+                    ctx.strokeStyle = "white";
+                    ctx.lineWidth = 0;
+
+                    ctx.font = 'bold 22px Helvetica, Arial';
+
+                    for (var i = 0; i < options.length; i++) {
+                        var angle = startAngle + i * arc;
+                        //ctx.fillStyle = colors[i];
+                        ctx.fillStyle = getColor(i, options.length);
+
+                        ctx.beginPath();
+                        ctx.arc(250, 250, outsideRadius, angle, angle + arc, false);
+                        ctx.arc(250, 250, insideRadius, angle + arc, angle, true);
+                        ctx.stroke();
+                        ctx.fill();
+
+                        ctx.save();
+                        ctx.shadowOffsetX = -1;
+                        ctx.shadowOffsetY = -1;
+                        ctx.shadowBlur = 0;
+                        ctx.shadowColor = "rgb(220,220,220)";
+                        ctx.fillStyle = "black";
+                        ctx.translate(250 + Math.cos(angle + arc / 2) * textRadius,
+                            250 + Math.sin(angle + arc / 2) * textRadius);
+                        ctx.rotate(angle + arc / 2 + Math.PI / 2);
+                        var text = options[i];
+                        ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
+                        ctx.restore();
+
+
+
+                    }
+
+                    //Arrow
+                    ctx.fillStyle = "black";
+                    ctx.beginPath();
+                    ctx.moveTo(250 - 4, 250 - (outsideRadius + 5));
+                    ctx.lineTo(250 + 4, 250 - (outsideRadius + 5));
+                    ctx.lineTo(250 + 4, 250 - (outsideRadius - 5));
+                    ctx.lineTo(250 + 9, 250 - (outsideRadius - 5));
+                    ctx.lineTo(250 + 0, 250 - (outsideRadius - 13));
+                    ctx.lineTo(250 - 9, 250 - (outsideRadius - 5));
+                    ctx.lineTo(250 - 4, 250 - (outsideRadius - 5));
+                    ctx.lineTo(250 - 4, 250 - (outsideRadius + 5));
+                    ctx.fill();
+                }
+
+            }
+
+            function spin() {
+
+                spinAngleStart = Math.random() * 10 + 10;
+                spinTime = 0;
+                spinTimeTotal = Math.random() * 3 + 4 * 1000;
+                rotateWheel();
+            }
+
+            function rotateWheel() {
+
+                spinTime += 20;
+                if (spinTime >= spinTimeTotal) {
+                    stopRotateWheel();
+                    return;
+                }
+                var spinAngle = spinAngleStart - easeOut(spinTime, 0, spinAngleStart, spinTimeTotal);
+                startAngle += (spinAngle * Math.PI / 180);
+                drawRouletteWheel();
+                spinTimeout = setTimeout('rotateWheel()', 30);
+
+                var degrees = startAngle * 180 / Math.PI + 90;
+                var arcd = arc * 180 / Math.PI;
+                var index = Math.floor((360 - degrees % 360) / arcd);
+
+                if (index2 !== index) {
+                    index2 = index;
+                    spinwheel.play();
+                }
+
+
+            }
+
+            function stopRotateWheel() {
+                clearTimeout(spinTimeout);
+                var degrees = startAngle * 180 / Math.PI + 90;
+                var arcd = arc * 180 / Math.PI;
+                var index = Math.floor((360 - degrees % 360) / arcd);
+                ctx.save();
+                ctx.font = 'bold 30px Helvetica, Arial';
+                var text = options[index];
+                text_global = text;
+                ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 10);
+                ctx.restore();
+
+                $("#l1, #l2, #l3,#l4,#l5,#l6,#l7, #l8").css({"display": "none"});
+
+                $("#titulo_modal").html("Pregunta Nº " + text);
+                $("#imagen_pregunta").attr("src", "img/" + text + ".png");
+
+                console.log(num_opciones[Number(text) - 1]);
+                for (var i = 1; i <= num_opciones[Number(text) - 1]; i++) {
+                    console.log("#l" + i.toString());
+                    $("#l" + i.toString()).css({"display": "inline"});
+                    $("#r" + i.toString()).prop('checked', false);
+                }
+                $(".modal-header, h4, .close").css({"background-color": "#2e6da4"});
+                pop.play();
+                $("#myModal").modal();
+
+                tiempo_limite = tiempo[Number(text) - 1];
+
+                $("#timer_pregunta").html("Tiempo restante: " + tiempo_limite + " segundos");
+
+
+
+                x = setInterval(function () {
+
+
+                    tiempo_limite--;
+                    $("#timer_pregunta").html("Tiempo restante: " + tiempo_limite + " segundos");
+//                                    console.log(tiempo_limite);
+
+                    if (tiempo_limite <= 0) {
+                        clearInterval(x);
+
+                        tiempo_fuera();
+                    }
+                }, 1000);
+
+
+
+
+
+
+            }
+
+            function easeOut(t, b, c, d) {
+                var ts = (t /= d) * t;
+                var tc = ts * t;
+                return b + c * (tc + -3 * ts + 3 * t);
+            }
+
+            drawRouletteWheel();
+
+
+            function comprobar() {
+                clearInterval(x);
+                var text = text_global;
+
+                for (var i = 1; i <= num_opciones[Number(text) - 1]; i++) {
+                    var op = $("#r" + i.toString()).prop('checked');
+                    console.log(op);
+                    if (op) {
+                        console.log("Elegido:" + i);
+                        console.log("Correcto:" + respuestas[Number(text) - 1]);
+
+                        if (i == respuestas[Number(text) - 1]) {
+                            exito();
+                        } else {
+                            mal();
+                        }
+
+                        break;
+                    }
+                }
+
+
+            }
+
+
+            function exito() {
+                $("#modal2-titulo").html("Éxito");
+                $("#modal2-contenido").html("Lo lograste felicidades!");
+                $("#modal2-img").attr("src", "img/bien.gif");
+                $(".modal-header, h4, .close").css({"background-color": "#2e6da4"});
+                $("#myModal").modal("hide");
+                $("#myModal2").modal();
+//                                win.play();
+                cheer.play();
+
+            }
+
+            function mal() {
+                $("#modal2-titulo").html("Error");
+                $("#modal2-contenido").html("Fallaste! Sigue practicando.");
+                $("#modal2-img").attr("src", "img/triste.gif");
+                $(".modal-header, h4, .close").css({"background-color": "#c12e2a"});
+                $("#myModal").modal("hide");
+                $("#myModal2").modal();
+//                                lose.play();
+                wrong.play();
+
+            }
+
+            function tiempo_fuera() {
+                $("#modal2-titulo").html("Tiempo Fuera");
+                $("#modal2-contenido").html("Se te acabo el tiempo. Intenta nuevamente!");
+                $("#modal2-img").attr("src", "img/Timeout.png");
+                $(".modal-header, h4, .close").css({"background-color": "#ec971f"});
+                $("#myModal").modal("hide");
+                $("#myModal2").modal();
+                timealarm.play();
+            }
+        </script>
+
+
+    </body>
+</html>
